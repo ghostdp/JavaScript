@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>手机</h3>
+    <ul>
+        <li>小米</li>
+        <li>三星</li>
+        <li>苹果</li>
+    </ul>
+    <h3>平板</h3>
+    <ul>
+        <li>小米22</li>
+        <li>三星22</li>
+        <li>苹果22</li>
+    </ul>
+    <h3>电脑</h3>
+    <ul>
+        <li>小米33</li>
+        <li>三星33</li>
+        <li>苹果33</li>
+    </ul>
+    <script>
+    
+    var h3s = document.getElementsByTagName('h3');
+    var uls = document.getElementsByTagName('ul');
+    //var onoff = true;  //会造成开关的混乱
+
+    for(var i=0;i<h3s.length;i++){
+        h3s[i].index = i;
+        h3s[i].onoff = true;
+        h3s[i].onclick = function(){
+            if(this.onoff){
+                uls[this.index].style.display = 'none';
+            }
+            else{
+                uls[this.index].style.display = 'block';
+            }
+            this.onoff = !this.onoff;
+        };
+    }
+    
+    </script>
+</body>
+</html>

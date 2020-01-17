@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .active{ background:red;}
+    div{ width:200px; height:200px; border:1px black solid; display: none;}
+    .show{ display: block;}
+    </style>
+</head>
+<body>
+    <button class="active">电影</button>
+    <button>电视剧</button>
+    <button>综艺</button><br>
+    <div class="show">电影的列表</div>
+    <div>电视剧的列表</div>
+    <div>综艺的列表</div>
+    <script>
+    
+    var buttons = document.getElementsByTagName('button');
+    var divs = document.getElementsByTagName('div');
+
+    for(var i=0;i<buttons.length;i++){
+        buttons[i].index = i;  // 添加索引 (重点)
+        buttons[i].onclick = function(){
+            for(var i=0;i<buttons.length;i++){
+                buttons[i].className = '';
+                divs[i].className = '';
+            }
+            this.className = 'active';
+            divs[this.index].className = 'show';   // (重点)
+        };
+    }
+    
+    </script>
+</body>
+</html>

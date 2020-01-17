@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //作用域
+
+    /* var a = 10;
+
+    function foo(){
+        var b = 20;
+        console.log( a );
+        console.log( b );
+    }
+    
+    foo();
+
+    console.log( a );
+    console.log( b ); */
+
+/* 
+    var 普通电影 = '';
+
+    function 优酷会员(){
+        var vip电影 = '';
+
+    } */
+
+    /* var a = 10;
+
+    var a = 20;
+
+    console.log( a ); */
+
+
+   /*  var a = 10;
+
+    a = 20;
+
+    console.log( a );
+ */
+
+/*     var a = 10;
+
+    function foo(){
+        var a = 20;
+        console.log(a);   //就近原则 20
+    }
+
+    foo();
+
+    console.log( a );  // 10
+ */
+
+
+    /* function 苹果榨汁机(){
+        var 苹果;
+        去皮
+        去核
+        切块
+    } */
+
+    /* function 水果榨汁机(type){
+        去皮
+        去核
+        切块
+    }
+
+    水果榨汁机(苹果);
+    水果榨汁机(西瓜);
+    水果榨汁机(葡萄); */
+/* 
+    function foo( n ){
+        console.log( n * n );
+    }
+
+    foo( 5 ); */
+
+    
+   /*  function foo( n , m , k ){
+        console.log( n * n );
+    }
+
+    foo( 5 , 6 , 7 );
+
+
+    function 过功能榨汁机(type , type2){
+        去皮
+        去核
+        切块
+    }
+
+    过功能榨汁机( 水果 , 苹果 );
+    过功能榨汁机( 蔬菜 , 西红柿 );
+     */
+
+
+    /* function 水果榨汁机(type){
+        去皮
+        去核
+        切块
+
+        return 果汁;
+    }
+
+    var 苹果汁 = 水果榨汁机(苹果); */
+
+
+    /* function foo(){
+        return 123;
+    }
+
+    var result = foo();
+    console.log(result); */
+    
+
+    function sum(start , end){
+        
+        var result = 0;
+
+       /*  for(var i=start; i<=end; i++){
+            result += i;
+        } */
+
+        for(; start<=end; start++){
+            result += start;
+        }
+
+        return result;
+    }
+
+    console.log( sum(1,100) );
+    console.log( sum(1,1000) );
+    console.log( sum(5,25) );
+    </script>
+</body>
+</html>

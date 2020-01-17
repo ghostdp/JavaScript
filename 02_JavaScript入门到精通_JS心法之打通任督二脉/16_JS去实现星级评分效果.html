@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    ul{ list-style: none; margin:100px;}
+    ul li{ width:40px; height:40px; float: left; background:url('./img/starOff.png'); background-size:cover;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+    
+    var lis = document.getElementsByTagName('li');
+
+    for(var i=0;i<lis.length;i++){
+        lis[i].index = i;
+        lis[i].onmouseover = function(){
+            for(var i=0;i<lis.length;i++){
+                if(this.index >= i){
+                    // 警告： - 在JS中是不允许出现的 , 变成一种驼峰写法
+                    lis[i].style.backgroundImage = 'url(./img/starOn.png)';
+                }
+            }
+        };
+        lis[i].onmouseout = function(){
+            for(var i=0;i<lis.length;i++){
+                lis[i].style.backgroundImage = 'url(./img/starOff.png)';
+            }
+        };
+    }
+    
+    </script>
+</body>
+</html>

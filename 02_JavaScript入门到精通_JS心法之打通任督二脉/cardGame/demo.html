@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记忆卡牌--小游戏</title>
+    <style>
+    *{ margin: 0; padding: 0; }
+    #main{ width: 600px; height: 500px; margin: 30px auto; position: relative; }
+    #gameStart{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url(img/start.png) no-repeat; z-index: 2;}
+    #gameStart .button{ width: 90px; height: 50px; position: absolute; left: 435px; top: 385px; cursor: pointer;}
+    #gamePlay{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 1; }
+    #gamePlay .title{ height: 30px; font-size: 26px; line-height: 30px; font-weight: bold; }
+    #gamePlay .pass{ float: left; }
+    #gamePlay .score{ float: right; }
+    #gamePlay .time{ height:30px; }
+    #gamePlay .time div{ width: 100%; height:100%; background: red; }
+    #gamePlay .content{ width: 100%; height: 440px; background: url(img/bg.png) no-repeat; }
+    #gamePlay .content div{ width: 110px; height: 110px; float: left; background-size: cover; margin: 0 20px; }
+    #gamePlay .content .sty1{ background-image: url(img/a.png); }
+    #gamePlay .content .sty2{ background-image: url(img/b.png); }
+    #gamePlay .content .sty3{ background-image: url(img/c.png); }
+    #gamePlay .content .sty4{ background-image: url(img/d.png); }
+    #gamePlay .content .sty5{ background-image: url(img/e.png); }
+    #gamePlay .content .sty6{ background-image: url(img/f.png); }
+    #gamePlay .content .sty7{ background-image: url(img/g.png); }
+    #gamePlay .content .sty8{ background-image: url(img/h.png); }
+    #gamePlay .content .styFlip{ background-image: url(img/w.png); }
+    #gamePlay .tip{ width: 100%; position: absolute; text-align: center; top: 50%; font-size: 36px; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+    <div id="main">
+      <div id="gameStart">
+        <div class="button"></div>
+      </div>
+      <div id="gamePlay">
+        <div class="title">
+          <div class="pass">第1关</div>
+          <div class="score">积分：0</div>
+        </div>
+        <div class="time">
+          <div></div>
+        </div>
+        <div class="content">
+          <!-- <div class="sty1"></div>
+          <div class="sty1"></div>
+          <div class="sty2"></div>
+          <div class="sty2"></div> -->
+        </div>
+        <div class="tip"></div>
+      </div>
+    </div>
+    <script>
+
+    var gameStart = $id('gameStart');
+    var gameBtn = $class(gameStart , 'button')[0];
+    var gamePlay = $id('gamePlay');
+    var tip = $class(gamePlay , 'tip')[0];
+    var pass = $class(gamePlay , 'pass')[0];
+    var content = $class(gamePlay , 'content')[0];
+    var imgs = $tag(content , 'div');
+    var time = $class(gamePlay , 'time')[0];
+    var timeBar = $tag(time , 'div')[0];
+    var score = $class(gamePlay , 'score')[0];
+    
+    var now = 0;
+    var data = [
+      { group : 2 , time : 10 , score : 10 },
+      { group : 4 , time : 10 , score : 20 },
+      { group : 6 , time : 8 , score : 30 },
+      { group : 8 , time : 6 , score : 40 }
+    ];
+    var waitFlip = 2000;
+    var showTimeTimer;
+    var scoreNum = 0;
+
+    init();
+
+    function init(){   // 初始化
+      gameBtn.onclick = function(){
+        hide(gameStart);
+        playing();
+      };
+    }
+
+    function playing(){   // 开始游戏了
+      countDown(function(){
+        createCard();
+        setTimeout(function(){
+          imgFlip();
+          imgBind();
+          showTime();
+        },waitFlip);
+      });
+      
+    }
+
+    function countDown(cb){  // 倒计时
+      var num = 3;
+      show(tip);
+      tip.innerHTML = pass.innerHTML = '第'+ (now+1) +'关';
+      var timer = setInterval(function(){
+        if(num > 0){
+          tip.innerHTML = num;
+          num--;
+        }
+        else{
+          clearInterval(timer);
+          hide(tip);
+          if(cb){
+            cb();
+          }
+        }
+      },1000);
+    }
+
+    function createCard(){   // 创建卡牌
+      var arr = getRandomArr();
+      var temp = '';
+      for(var i=0;i<arr.length;i++){
+        temp += '<div class="sty'+ arr[i] +'"></div>';
+      }
+      content.innerHTML = temp;
+    }
+
+    function getRandomArr(){  // 创建一个随机的数组  [1,1,2,2] | [1,2,1,2] | [1,2,2,1]
+      var group = data[now].group;
+      var result = [];
+      for(var i=1;i<=group;i++){
+        result.push( i , i );
+      }
+      result.sort(function(n1,n2){
+        return Math.random() - 0.5;
+      });
+      return result;
+    }
+
+    function imgFlip(){   // 图片反转
+      for(var i=0;i<imgs.length;i++){
+        imgs[i].myClass = imgs[i].className;
+        imgs[i].className = 'styFlip';
+      }
+    }
+
+    function imgBind(){  // 图片操作
+      var count = 0;
+      var countArr = [];
+      for(var i=0;i<imgs.length;i++){
+        imgs[i].onclick = function(){
+          if( this.className == 'styFlip' && count != 2 ){
+            count++;
+            countArr.push(this);
+            this.className = this.myClass;
+            if(count == 2){
+              setTimeout(function(){
+                toCom(countArr);
+                count = 0;
+                countArr = [];
+                if( isNext() ){
+                  if( now == data.length-1 ){
+                    tipAllSuccess();
+                  }
+                  else{
+                    now++;
+                    resetState();
+                    playing();
+                  }
+                }
+              },300);
+            }
+          }
+        };
+      }
+    }
+
+    function toCom(countArr){   // 比较两个图片是否相同
+      var one = countArr[0];
+      var two = countArr[1];
+      if(one.className == two.className){
+        one.className = two.className = '';
+        gameScore();
+      }
+      else{
+        one.className = two.className = 'styFlip';
+      }
+    }
+
+    function isNext(){  // 是否进入下一关
+      for(var i=0;i<imgs.length;i++){
+        if( imgs[i].className != '' ){
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function tipAllSuccess(){   // 通关的提示
+      show(tip);
+      tip.innerHTML = '恭喜你，通关成功！！！';
+      resetState();
+    }
+
+    function tipError(){
+      show(tip);
+      tip.innerHTML = '游戏失败！！！';
+      resetState();
+    }
+
+    function showTime(){  //时间的显示
+      var time = data[now].time;
+      var changeTime = time;
+      showTimeTimer = setInterval(function(){
+        changeTime--;
+        timeBar.style.width = changeTime/time*100 +'%';
+        if(changeTime == 0){
+          clearInterval(showTimeTimer);
+          tipError();
+        }
+      },1000);
+    }
+
+    function resetState(){   // 还原状态
+      clearInterval(showTimeTimer);
+      content.innerHTML = '';
+      timeBar.style.width = '100%';
+    }
+
+    function gameScore(){  // 游戏的积分
+      scoreNum += data[now].score;
+      score.innerHTML = '积分：' + scoreNum;
+    }
+    
+    function $id(id){
+      return document.getElementById(id);
+    }
+    function $class(parent , names){
+      return parent.getElementsByClassName(names);
+    }
+    function $tag(parent , names){
+      return parent.getElementsByTagName(names);
+    }
+    function show(elem){
+      elem.style.display = 'block';
+    }
+    function hide(elem){
+      elem.style.display = 'none';
+    }
+
+    
+    </script>
+</body>
+</html>

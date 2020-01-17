@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    全选：<input type="checkbox">
+    <hr>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <script>
+
+    var checkbox = document.getElementsByTagName('input'); 
+    var onoff = true;
+
+    checkbox[0].onclick = function(){
+        if(onoff){
+            for(var i=1;i<checkbox.length;i++){
+                checkbox[i].checked = true;
+            }
+        }
+        else{
+            for(var i=1;i<checkbox.length;i++){
+                checkbox[i].checked = false;
+            }
+        }
+        onoff = !onoff;
+    };
+
+    for(var i=1;i<checkbox.length;i++){
+        checkbox[i].onclick = function(){
+            if( isAll() ){
+                checkbox[0].checked = true;
+                onoff = false;
+            }
+            else{
+                checkbox[0].checked = false;
+                onoff = true;
+            }
+        };
+    }
+
+    function isAll(){   // 重点掌握isAll函数的实现原理，举一反三的去多加练习
+        for(var i=1;i<checkbox.length;i++){
+            if( !checkbox[i].checked ){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    </script>
+</body>
+
+</html>

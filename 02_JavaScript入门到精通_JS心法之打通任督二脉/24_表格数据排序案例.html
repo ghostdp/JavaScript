@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tab" border="1">
+        <tr>
+            <th>年龄<span></span></th>
+        </tr>
+        <tr>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+    </table>
+    <script>
+    
+    var tab = document.getElementById('tab');
+    var th = tab.getElementsByTagName('th')[0];
+    var span = tab.getElementsByTagName('span')[0];
+    var tds = tab.getElementsByTagName('td');
+    var arr = [];
+    var temp = -1;
+    
+    for(var i=0;i<tds.length;i++){
+        arr.push( tds[i].innerHTML );
+    }
+
+    th.onclick = function(){
+        
+        temp *= -1;
+
+        span.innerHTML = temp == 1 ? '↑' : '↓';
+
+        arr.sort(function(n1,n2){
+            return temp*(n1 - n2);
+        });
+
+        for(var i=0;i<tds.length;i++){
+            tds[i].innerHTML = arr[i];
+        }
+
+    };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elem">aaaaa</div>
+    <script>
+    
+
+    /* var obj = {};
+
+    obj.name = 'xiaoming';
+    obj.age = 20;
+    obj.play = function(){
+        console.log( '游戏打得好' );
+    };
+
+    console.log( obj.name );
+    console.log( obj.age );
+    obj.play(); */
+
+    /* var obj = {
+        name : 'xiaoming',
+        age : 20,
+        play : function(){
+            console.log('游戏打得好');
+        }
+    };
+    console.log( obj.name );
+    console.log( obj.age );
+    obj.play(); */
+
+   /*  var str = 'hello';
+
+    str.name = 'xiaoming';
+
+    console.log( str.name );  // undefined */
+
+    //HTML自定义属性 , elem其实就是一个对象( 重点 )
+
+    /* var elem = document.getElementById('elem');
+
+    elem.qianfeng = '千锋教育';
+
+    console.log( elem.qianfeng ); */
+
+    /* var elem = document.getElementById('elem');
+    elem.id
+    elem.onclick = function(){}; */
+
+    /* var obj = {
+        name : 'xiaoming',
+        age : 20,
+        play : function(){
+            console.log('游戏打得好');
+        }
+    };
+
+    console.log( obj.name );
+    console.log( obj['name'] );
+    obj['play'](); */
+
+    //var elem = document.getElementById('elem');
+    //elem.style.color = 'red';
+    //elem['style']['color'] = 'blue';
+
+    /* var obj = {
+        name : 'xiaoming',
+        age : 20,
+        play : function(){
+            console.log('游戏打得好');
+        }
+    };
+
+    var foo = 'name';
+    // []这种写法，适合进行变量赋值属性的操作。(重点)
+    console.log( obj.foo );
+    console.log( obj[foo] ); */
+
+    /* var obj = {
+        name : 'xiaoming',
+        age : 20,
+        play : function(){
+            console.log('游戏打得好');
+        }
+    };
+
+    console.log( obj.length ); */  //没有长度，对象不能够用for循环的
+
+    var obj = {
+        name : 'xiaoming',
+        age : 20,
+        play : function(){
+            console.log('游戏打得好');
+        }
+    };
+
+    for(var attr in obj){
+        //console.log( attr );   // 对象中的属性
+        console.log( obj[attr] );   // 对象中的值
+    }
+    
+    </script>
+</body>
+</html>

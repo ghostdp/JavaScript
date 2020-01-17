@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{ margin:0px; padding:0px;}
+    ul,ol{ list-style:none;}
+    img{ display:block;}
+    #banner{ width:400px; height:150px; margin:20px auto; position:relative; overflow:hidden;}
+    #banner ul{ width:2000px; position:absolute; top:0; left:0; transition:.5s;}
+    #banner ul li{ width:400px; height:150px; float: left;}
+    #banner ul img{ width:400px; height:150px;}
+    #banner ol{ position:absolute; right:10px; bottom:10px;}
+    #banner ol li{ width:20px; height:20px; background:gray; float:left; border-radius: 50%; margin:5px;}
+    #banner ol li.active{ background:red;}
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="./img/32.jpg" alt=""></li>
+            <li><img src="./img/33.jpg" alt=""></li>
+            <li><img src="./img/34.jpg" alt=""></li>
+            <li><img src="./img/35.jpg" alt=""></li>
+            <li><img src="./img/36.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script>
+    
+    var banner = document.getElementById('banner');
+    var bannerUl = banner.getElementsByTagName('ul')[0];
+    var bannerOl = banner.getElementsByTagName('ol')[0];
+    var bannerOlItem = bannerOl.getElementsByTagName('li');
+    var now = 0;
+    var timer;
+    
+    for(var i=0;i<bannerOlItem.length;i++){
+        bannerOlItem[i].index = i;
+        bannerOlItem[i].onmouseover = function(){
+            for(var i=0;i<bannerOlItem.length;i++){
+                bannerOlItem[i].className = '';
+            }
+            this.className = 'active';
+            bannerUl.style.left = - this.index * 400 + 'px';
+            now = this.index;
+        };
+    }
+
+    banner.onmouseover = function(){
+        clearInterval(timer);
+    };
+    banner.onmouseout = function(){
+        timer = setInterval(run,3000);
+    };
+
+    timer = setInterval(run,3000);
+
+    function run(){
+
+        if(now == bannerOlItem.length-1){   // 一定要掌握这种衔接操作（重点）
+            now = 0;
+        }
+        else{
+            now++;
+        }
+
+        for(var i=0;i<bannerOlItem.length;i++){
+            bannerOlItem[i].className = '';
+        }
+        bannerOlItem[now].className = 'active';
+        bannerUl.style.left = - now * 400 + 'px';
+
+    }
+    
+    
+    </script>
+</body>
+</html>

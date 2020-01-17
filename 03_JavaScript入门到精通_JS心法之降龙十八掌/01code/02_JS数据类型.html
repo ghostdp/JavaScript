@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    /* string
+    number
+    boolean
+    null
+    undefined
+    object : {} [] function(){}
+
+    symbol
+    bigint */
+
+    //typeof : 返回的结果是字符串
+
+    /* console.log(typeof 'hello');
+    console.log(typeof 123);
+    console.log(typeof true);
+    console.log(typeof null);
+    console.log(typeof undefined);
+    console.log(typeof {});
+    console.log(typeof []);
+    console.log(typeof function(){});
+
+    console.log( typeof Symbol() );
+    console.log( typeof 123n ); */
+
+    //console.log( typeof typeof 123 );
+
+    // 比较推荐的判断数据类型的方法（重点，但是为什么能做到？后面面向对象学习的时候再说！）
+    /* console.log( Object.prototype.toString.call('hello') );
+    console.log( Object.prototype.toString.call(123) );
+    console.log( Object.prototype.toString.call(true) );
+    console.log( Object.prototype.toString.call(null) );
+    console.log( Object.prototype.toString.call(undefined) );
+    console.log( Object.prototype.toString.call({}) );
+    console.log( Object.prototype.toString.call([]) );
+    console.log( Object.prototype.toString.call(function(){}) );
+    console.log( Object.prototype.toString.call(Symbol()) );
+    console.log( Object.prototype.toString.call(123n) ); */
+    
+    
+    /* console.log( Number('324') );
+    console.log( Number('324abc') );
+    console.log( Number('') );
+    console.log( Number(true) );
+    console.log( Number(false) );
+    console.log( Number(undefined) );
+    console.log( Number(null) ); */
+
+    //console.log( typeof NaN );
+    //console.log( isNaN(NaN) );   //判断是否是NaN指的这样一个方法
+
+    //console.log( Number('324abc') );
+    //console.log( parseInt('324abc') );
+
+    //console.log( Number([5]) );    // valueOf() toString() 后面再给大家讲解！
+    //console.log( Number([5,6]) );  
+
+   /*  console.log( String(123) );
+    console.log( String(true) );  
+    console.log( String(undefined) );
+    console.log( String(null) ); */
+
+    /* console.log( String({}) );     // valueOf() toString()
+    console.log( String([]) ); */
+
+    /* console.log( Boolean(0) );
+    console.log( Boolean('') );
+    console.log( Boolean(undefined) );
+    console.log( Boolean(null) );
+    console.log( Boolean(NaN) ); */
+
+    /* Boolean(true) -> true
+    Boolean(false) -> false */
+
+    /* console.log( Boolean(1) );
+    console.log( Boolean(-1) );
+    console.log( Boolean('abc') );
+    console.log( Boolean({}) );
+    console.log( Boolean([]) ); */
+
+    //console.log( 123 + '456' );
+    //console.log( 123 - '456' );
+    //console.log( 123 - '456abc' );
+    //console.log( '1' - true );
+    //console.log( '1' - undefined );
+    //console.log( '1' - null );
+
+    /* if( [] ){
+        console.log(123);   // ? 
+    } */
+
+    //console.log( 1 == '1' );  //  1 === Number('1')  -> 1 === 1  true
+
+    //console.log( 5 == true );   //  5 === Number(true) -> 5 === 1  false
+
+    //console.log( undefined == null );
+    //console.log( undefined == undefined );
+    //console.log( null == null );
+
+    //console.log( null == false );
+    //console.log( null == true );
+
+    //对象比较的时候，会涉及到  valueOf() toString()
+
+    //console.log( [] == 0 );   // true   [].valueOf() -> [].toString()  ''  == 0   0 === 0
+    //console.log( [0] == 0 );  // true   [0].valueOf() -> [0].toString()   '0' == 0  0 === 0
+    //console.log( [0,0] == 0 );  // false [0,0].valueOf() -> [0,0].toString()   '0,0' == 0  NaN === 0
+    //console.log( [0,0] == '0,0' );
+
+    //扩展了解：
+
+   /*  console.log( NaN == NaN );  // false
+    console.log( +0 == -0 );   // true
+
+    console.log( Object.is(NaN , NaN) );  // true
+    console.log( Object.is(+0 , -0) );   // false */
+
+    //对象与对象比较的时候：
+    //console.log( [] == [] );   // 两个对象长得一样，但是就不不等？为什么呢？对象的引用（重点）
+
+    console.log( 1 === '1' );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="text" type="text"><br>
+    <input class="checkbox" type="checkbox" value="html">html<br>
+    <input class="checkbox" type="checkbox" value="css">css<br>
+    <input class="checkbox" type="checkbox" value="javascript">javascript<br>
+    <input class="checkbox" type="checkbox" value="jquery">jquery<br>
+    <script>
+    
+    var text = document.getElementById('text');
+    var cbs = document.getElementsByClassName('checkbox');
+
+    for(var i=0;i<cbs.length;i++){
+        cbs[i].onclick = function(){
+
+            if( this.checked ){  // 选中复选框
+
+                var val = this.value;
+                if( text.value == '' ){
+                    text.value += val;
+                }
+                else{
+                    text.value += ',' + val;
+                }
+                
+            }
+            else{   // 取消复选框
+
+                var val = this.value;
+                var arr = text.value.split(',');
+                for(var i=0;i<arr.length;i++){
+                    if( arr[i] == val ){
+                        arr.splice( i , 1 );
+                    }
+                }
+                text.value = arr.join(',');
+            }
+
+        };
+    }
+    
+    </script>
+</body>
+</html>

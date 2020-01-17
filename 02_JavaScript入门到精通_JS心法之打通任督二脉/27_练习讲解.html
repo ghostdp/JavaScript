@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{ margin:0; padding:0;}
+        ul{ list-style: none; margin:100px; overflow: hidden;}
+        ul li{ width:40px; height:40px; float: left; background:url('./img/starOff.png'); background-size:cover;}
+    </style>
+</head>
+<body>
+
+    <!-- <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+
+    <!-- <ul id="star1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ul id="star2">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+
+    <input type="text"><button id="btn">获取验证码</button>
+
+    <script>
+    
+    /* var year = 2020;
+
+    console.log( year%400 == 0 || (year%4==0 && year%100!=0) ? '闰年' : '不是闰年' ); */
+
+    /* var count = 0;
+
+    for( var i=100000; i>=5000; i > 50000 ? i -= i * 0.05 : i -= 5000 ){
+        count++;
+    }
+
+    console.log( count ); */
+
+
+    /* function foo(n){
+        var result = 0;
+        for(;n>0;n-=2){
+            result += 1/n;
+        }
+        return result;
+    }
+
+    console.log( foo(7) ); */
+
+    /* var lis = document.getElementsByTagName('li');
+
+    for(var i=0;i<lis.length;i++){
+        if(i%2==0){
+            lis[i].style.background = 'red';
+            lis[i].myColor = 'red';
+        }
+        else{
+            lis[i].style.background = 'blue';
+            lis[i].myColor = 'blue';
+        }
+        lis[i].onmouseover = function(){
+            this.style.background = 'green';
+        };
+        lis[i].onmouseout = function(){
+            this.style.background = this.myColor;
+        };
+    } */
+
+    /* function star(id , num){
+        var parent = document.getElementById(id);
+        var lis = parent.getElementsByTagName('li');
+        for(var i=0;i<lis.length;i++){
+            if( num - 1 >= i ){
+                lis[i].style.backgroundImage = 'url(./img/starOn.png)';
+            }
+
+            lis[i].index = i;
+            lis[i].onmouseover = function(){
+                for(var i=0;i<lis.length;i++){
+                    if(this.index >= i){
+                        lis[i].style.backgroundImage = 'url(./img/starOn.png)';
+                    }
+                    else{
+                        lis[i].style.backgroundImage = 'url(./img/starOff.png)';
+                    }
+                }
+            };
+            lis[i].onmouseout = function(){
+                for(var i=0;i<lis.length;i++){
+                    if( num - 1 >= i ){
+                        lis[i].style.backgroundImage = 'url(./img/starOn.png)';
+                    }
+                    else{
+                        lis[i].style.backgroundImage = 'url(./img/starOff.png)';
+                    }
+                }
+            };
+        }
+    }
+
+    star('star1' , 3);
+    star('star2' , 4); */
+
+
+   /*  function foo(str){
+        return str.split('').reverse().join('');
+    }
+
+    console.log( foo('hello world') ); */
+
+
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function(){
+        var count = 10;
+        var This = this;
+        this.disabled = true;
+        this.innerHTML = count + 's';
+        var timer = setInterval(function(){
+
+            count--;
+
+            if( count == 0 ){
+                clearInterval(timer);
+                This.disabled = false;
+                This.innerHTML = '获取验证码';
+            }
+            else{
+                This.innerHTML = count + 's';
+            }
+
+        },1000);
+    };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box1{ width:100px; height: 30px; background:Red;}
+    #box2{ width:100px; height: 100px; background:blue; margin-top: 20px; display: none;}
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+    
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    var timer;
+
+    box1.onmouseover = function(){
+        clearTimeout(timer);
+        box2.style.display = 'block';
+    };
+    box1.onmouseout = function(){
+        timer = setTimeout(function(){
+            box2.style.display = 'none';
+        },200);
+    };
+
+    box2.onmouseover = function(){
+        clearTimeout(timer);
+    };
+    box2.onmouseout = function(){
+        timer = setTimeout(function(){
+            box2.style.display = 'none';
+        },200);
+    };
+    
+    </script>
+</body>
+</html>

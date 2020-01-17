@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <input type="button" value="-">
+        <span>0件</span>
+        <input type="button" value="+">
+        <em>4.00元</em>
+    </li>
+    <li>
+        <input type="button" value="-">
+        <span>0件</span>
+        <input type="button" value="+">
+        <em>5.00元</em>
+    </li>
+    <li>
+        <input type="button" value="-">
+        <span>0件</span>
+        <input type="button" value="+">
+        <em>6.00元</em>
+    </li>
+    <li>
+        <input type="button" value="-">
+        <span>0件</span>
+        <input type="button" value="+">
+        <em>7.00元</em>
+    </li>
+</ul>
+<input type="button" value="商品总计" id="countBtn">
+<input type="text" id="count" value="0件">
+<input type="button" value="价格总计：" id="priceBtn">
+<input type="text" id="price" value="0元">
+<script>
+
+var list = document.getElementById('list');
+var listItem = list.getElementsByTagName('li');
+var count = document.getElementById('count');
+var price = document.getElementById('price');
+
+function computed( item ){
+    var btns = item.getElementsByTagName('input');
+    var span = item.getElementsByTagName('span')[0];
+    var em = item.getElementsByTagName('em')[0];
+
+    btns[0].onclick = function(){
+        var number = parseInt(span.innerHTML);
+        if(number > 0){
+            span.innerHTML = number - 1 + '件';
+        }
+        countAll();
+        priceAll();
+    };
+    btns[1].onclick = function(){
+        var number = parseInt(span.innerHTML);
+        span.innerHTML = number + 1 + '件';
+        countAll();
+        priceAll();
+    };
+
+}
+
+function countAll(){
+    var result = 0;
+
+    for(var i=0;i<listItem.length;i++){
+        var span = listItem[i].getElementsByTagName('span')[0];
+        var number = parseInt(span.innerHTML);
+        result += number;
+    }
+
+    count.value = result + '件';
+}
+
+function priceAll(){
+    var result = 0;
+
+    for(var i=0;i<listItem.length;i++){
+        var span = listItem[i].getElementsByTagName('span')[0];
+        var em = listItem[i].getElementsByTagName('em')[0];
+        var number = parseInt(span.innerHTML);
+        var money = parseInt(em.innerHTML);
+        result += number*money;
+    }
+
+    price.value = result + '元';
+}
+
+for(var i=0;i<listItem.length;i++){
+    computed( listItem[i] );
+}
+
+</script>
+</body>
+</html>

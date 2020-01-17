@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="box" class="nowContainer">aaaaa</div>
+    <div class="nowContainer">bbbb</div>
+    <p class="nowContainer">cccc</p> -->
+
+    <!-- <ul id="ulElem">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol> -->
+
+    <!-- <div id="elem" class="box" title="hello" style="color:red;">aaaaaaaaa<span>span</span></div> -->
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+    
+    //var box = document.getElementById('box');
+    //console.log(box);
+
+    //var nowContainer = document.getElementsByClassName('nowContainer');
+    // 下标 [] , 可以找到集合中的某一项 , 下标从0开始，0表示集合中的第一项
+    //console.log( nowContainer[0] );
+    //console.log( nowContainer[1] );
+    //console.log( nowContainer[2] );
+    //console.log( nowContainer.length );  // 集合下的长度  3
+
+    /* var div = document.getElementsByTagName('div');
+    console.log( div.length ); */
+
+    /* var ulElem = document.getElementById('ulElem');
+    var li = ulElem.getElementsByTagName('li');
+    console.log( li.length ); */
+
+    //var elem = document.getElementById('elem');
+    //console.log( elem.innerHTML );
+    //elem.innerHTML += '<h1>这是标题</h1>';
+
+    /* var elem = document.getElementById('elem'); */
+
+    
+    /* console.log( elem.id );
+    console.log( elem.className );   // class被JS占用了，所以样式可通过className来替代使用
+    console.log( elem.title );
+    console.log( elem.style.color ); */
+
+   /*  elem.id = 'elem2';
+    elem.className = 'box2';
+    elem.title = 'hi';
+    elem.style.color = 'blue'; */
+
+    var lis = document.getElementsByTagName('li');
+
+    /* lis[0].style.background = 'red';
+    lis[1].style.background = 'red';
+    lis[2].style.background = 'red';
+    lis[3].style.background = 'red';
+    lis[4].style.background = 'red'; */
+
+    for(var i=0;i<lis.length;i++){
+        if(i%2==0){
+            lis[i].style.background = 'red';
+        }
+        else{
+            lis[i].style.background = 'blue';
+        }
+    }
+
+    </script>	    
+</body>
+</html>

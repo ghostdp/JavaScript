@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+   /*  0 1 2 3 4 5 6 7 8 9 -> 10 11 12 ...
+
+    0 1 -> 10 11 100 101 110 111 1000 ...
+
+    0 1 2 3 4 5 6 7 -> 10 11 12 13 14 15 16 17 20 ...
+
+    0 1 2 3 4 5 6 7 8 9 a b c d e f -> 10 11 ... 1f 20 ...  */
+    
+
+   /*  24 -> 2*10 + 4
+    124 -> 1*10*10 + 2*10 + 4     */
+
+   /*  37 ->  3*8 + 7 -> 31
+    ff ->  15*16 + 15  -> 255    #FFFFFF  rgb(255,255,255)
+    1000 -> 1*2*2*2 + 0*2*2 + 0*2 + 0  -> 8 */
+
+   /*  var a = 0b1000;
+    var b = 0o37;
+    var c = 0xff;
+
+    console.log( a , b , c ); */
+
+    //console.log( parseInt(1000 , 2) );   //8
+    //console.log( parseInt(37 , 8) );   //31
+    //console.log( parseInt('ff' , 16) );   //255
+
+    console.log( Number(8).toString(2) );  // '1000'
+    console.log( Number(31).toString(8) );  // '37'
+    console.log( Number(255).toString(16) );  // 'ff'
+
+
+    
+    </script>
+</body>
+</html>

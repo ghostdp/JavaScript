@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elem" title="hello">aaaaaaaaaa</div>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+    
+    //var elem = document.getElementById('elem');
+
+    /* elem.title
+
+    elem.title = 'hi'; */
+
+    //elem.qianfeng = '千锋教育';
+
+    //console.log( elem.qianfeng );
+
+    /* elem.onclick = function(){
+        console.log( this.qianfeng );
+    }; */
+
+    var buttons = document.getElementsByTagName('button');
+    for(var i=0;i<buttons.length;i++){
+        buttons[i].index = i;
+        buttons[i].onclick = function(){
+            console.log( this.index );
+        }
+    }
+       
+    
+    </script>
+</body>
+
+</html>

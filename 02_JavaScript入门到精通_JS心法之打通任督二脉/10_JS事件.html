@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <!--  <div id="elem">aaaaaaa</div> -->
+    <button id="elem">按钮</button>
+    <script>
+    
+    var elem = document.getElementById('elem');
+
+    /* elem.onclick = function(){   // 可以用鼠标触发，也可以用键盘回车触发（元素必须是能够获取焦点的）
+        console.log(123);
+    }; */
+
+    /* elem.ondblclick = function(){
+        console.log(123);
+    }; */
+
+    /* elem.onmousedown = function(){
+        console.log(123);
+    };
+
+    elem.onmouseup = function(){
+        console.log(456);
+    }; */
+
+    /* elem.onmouseover = function(){
+        console.log(123);
+    };
+
+    elem.onmouseout = function(){
+        console.log(456);
+    }; */
+
+    elem.onmousemove = function(){   //鼠标移动事件 ( 触发频率非常快 )
+        console.log(123);
+    };
+    
+    
+    </script>
+</body>
+</html>

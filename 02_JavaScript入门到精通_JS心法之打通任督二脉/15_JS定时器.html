@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">小孩撒尿</button>
+    <script>
+    
+    //console.log(123);
+
+    /* setTimeout(function(){
+
+        console.log(123);
+
+    },2000); */
+
+    /* setInterval(function(){
+
+        console.log(123);
+
+    },2000); */
+
+    // 定时器是一个异步的操作 ( 重点 )
+
+    /* setTimeout(function(){
+
+        console.log(123);
+
+    },2000);
+
+    console.log(456); */
+
+    /* var timer = setTimeout(function(){
+
+        console.log('炸弹爆炸!!!');
+
+    },5000);
+
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function(){
+        clearTimeout(timer);
+    }; */
+
+    var now = 0;
+
+    var timer = setInterval(function(){
+
+        console.log(++now);
+
+        if( now == 5 ){
+            clearInterval(timer);
+        }
+
+    },2000);
+    
+    </script>
+</body>
+</html>

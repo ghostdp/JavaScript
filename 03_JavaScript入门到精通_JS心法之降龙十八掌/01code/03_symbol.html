@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+   /*  var a = 'hello';
+    var b = 'hello';
+
+    var obj = {};
+    obj[a] = 1;
+    obj[b] = 2;
+
+    console.log( obj[a] );
+    console.log( obj[b] ); */
+
+    /* var a = Symbol();
+    var b = Symbol();
+
+    var obj = {};
+    obj[a] = 1;
+    obj[b] = 2;
+
+    console.log( obj[a] );
+    console.log( obj[b] ); */
+
+    /* class Aaa {
+        constructor(){
+            this.a = 1;
+            var b = Symbol();
+            this[b] = 2;
+        }
+    }
+
+    var a1 = new Aaa();
+
+    console.log( a1.a );
+    console.log( a1[b] ); */
+
+    var obj = {};
+    var b = Symbol();
+    obj.a = 1;
+    obj[b] = 2;
+
+    //console.log( obj[b] );    
+
+    for(var attr in obj){
+        console.log( attr );
+    }
+    
+    
+    </script>
+</body>
+</html>
