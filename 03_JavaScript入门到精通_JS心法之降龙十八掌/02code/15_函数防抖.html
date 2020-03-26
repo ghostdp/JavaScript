@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+    
+    /* var input = document.getElementsByTagName('input')[0];
+    // 输入框触发事件，多次触发
+    input.oninput = change;
+
+    function change(){
+        console.log(123);
+    } */
+
+
+    var input = document.getElementsByTagName('input')[0];
+    // 输入框触发事件，多次触发
+    input.oninput = fangdou(change,300);
+
+    function change(){
+        console.log(123);
+    }
+
+    function fangdou(fn,delay){
+        var timer;
+        return function(){
+            clearTimeout(timer);
+            timer = setTimeout(function(){
+                fn();
+            },delay);
+        };
+    }
+    
+    </script>
+</body>
+</html>

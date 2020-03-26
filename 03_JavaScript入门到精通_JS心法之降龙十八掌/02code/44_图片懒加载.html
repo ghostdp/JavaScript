@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{ margin-top:400px; display: block; height:658px;}
+    </style>
+</head>
+<body>
+    <img src="" data-src="./img/32.jpg" alt="">
+    <img src="" data-src="./img/33.jpg" alt="">
+    <img src="" data-src="./img/34.jpg" alt="">
+    <img src="" data-src="./img/35.jpg" alt="">
+    <img src="" data-src="./img/36.jpg" alt="">
+
+    <script>
+  
+    
+
+    function a(){
+        return document.documentElement.clientHeight;
+    }    
+    function b(){
+        return document.documentElement.scrollTop;
+    }
+    function c(elem){
+        return elem.getBoundingClientRect().top;
+    }
+
+
+    isView();
+    window.onscroll = function(){
+        isView();
+    };
+
+    function isView(){
+        var imgs = document.getElementsByTagName('img');
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].flag = true;
+            if( a() > c(imgs[i]) && imgs[i].flag ){
+                var _src = imgs[i].dataset.src;
+                imgs[i].src = _src;
+                imgs[i].flag = false;
+            }
+        }
+    }
+
+    </script>
+</body>
+</html>

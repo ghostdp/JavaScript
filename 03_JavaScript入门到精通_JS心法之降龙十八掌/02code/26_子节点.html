@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul style="position: relative;">
+        <li id="list">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        
+    //var ul = document.getElementsByTagName('ul')[0];
+    //console.log( ul.childNodes );
+    //console.log( ul.children );
+
+    //console.log( ul.firstChild );
+    //console.log( ul.firstElementChild );
+
+    //console.log( ul.childElementCount );  //3
+
+    //console.log( ul.hasChildNodes() );
+
+    //console.log( document.documentElement.parentNode );
+    //console.log( document.documentElement.parentElement );
+
+    var list = document.getElementById('list');
+
+    //console.log( list.offsetParent );  //当没有定位模式的时候，祖先节点就是body
+
+    console.log( list.offsetParent );
+ 
+    </script>
+</body>
+</html>

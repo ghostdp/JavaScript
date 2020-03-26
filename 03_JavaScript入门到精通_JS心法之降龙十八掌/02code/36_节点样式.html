@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #elem{ width:200px;}
+    #elem:after{ content:"hello";}
+    </style>
+</head>
+<body>
+    <div id="elem" class="box1 box2" style="width:300px">aaaaa</div>
+    <script>
+    
+    var elem = document.querySelector('#elem');
+
+    //console.log( elem.classList[1] );  //box2
+
+    //elem.classList.add('box3');
+    //elem.classList.remove('box2');
+
+    //elem.classList.toggle('box2');  // 当样式不存在就调用add，当样式存在就调用remove
+    
+   /*  elem.style.width = '200px';
+    elem.style.height = '100px';
+    elem.style.background = 'red'; */
+
+    //elem.style.cssText = 'width:200px;height:100px;background:red';
+    
+    //最终样式 , 只能获取，不能进行设置 (重要的)
+
+    //console.log( elem.style.width );
+
+    //console.log( window.getComputedStyle(elem).width );
+    console.log( window.getComputedStyle(elem , ':after').content );
+
+    
+    </script>
+</body>
+</html>

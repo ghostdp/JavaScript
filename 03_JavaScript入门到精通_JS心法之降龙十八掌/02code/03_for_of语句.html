@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* var arr = ['a','b','c','d'];
+
+    for(var v of arr ){
+        console.log( v );
+    } */
+
+
+    // for of 不能对对象进行循环遍历的
+    /* var obj = {
+        username : 'xiaoming',
+        age : '20'
+    };
+
+    for(var v of obj ){
+        console.log( v );
+    } */
+    // 可以采用一些间接的手段来解决问题 Object.keys()  Object.values()
+    /* var obj = {
+        username : 'xiaoming',
+        age : '20'
+    };
+
+    for(var v of Object.values(obj) ){
+        console.log( v );
+    } */
+
+    //1. 内部改善了循环的性能
+    //2. 可以针对一些新的数据结构进行遍历（Set、Map）
+
+    var s = new Set(['a','b','c']);
+
+    for(var v of s){
+        console.log( v );
+    }
+
+
+
+    </script>
+</body>
+</html>

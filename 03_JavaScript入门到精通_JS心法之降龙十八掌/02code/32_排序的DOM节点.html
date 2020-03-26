@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tab" border="1">
+        <tr>
+            <th>年龄<span></span></th>
+        </tr>
+        <tr style="background:red;">
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>8</td>
+        </tr>
+        <tr style="background:red;">
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+    </table>
+    <script>
+    
+    var tab = document.getElementById('tab');
+    var th = tab.getElementsByTagName('th')[0];
+    var span = tab.getElementsByTagName('span')[0];
+    var trs = tab.getElementsByTagName('tr');
+    var arr = [];
+    var temp = -1;
+    
+    for(var i=1;i<trs.length;i++){
+        arr.push( trs[i] );
+    }
+
+    th.onclick = function(){
+        
+        temp *= -1;
+
+        span.innerHTML = temp == 1 ? '↑' : '↓';
+
+        arr.sort(function(tr1,tr2){
+            return temp * ( tr1.children[0].innerHTML - tr2.children[0].innerHTML );
+        });
+
+        for(var i=1;i<arr.length;i++){
+            tab.appendChild(arr[i]);
+        }
+
+    };
+
+    </script>
+</body>
+</html>

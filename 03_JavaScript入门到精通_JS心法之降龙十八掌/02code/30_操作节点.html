@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        <div></div>
+        <li></li>
+    </ul>
+    <p>pppppppppppppp</p> -->
+
+    <ul>
+        <li>1111111111</li>
+    </ul>
+    <hr>
+    <ul>
+
+    </ul>
+    <script>
+    
+   /*  var p = document.createElement('p');
+    p.innerHTML = 'PPPPPPPPP';
+    console.log( p.isConnected );
+    document.body.appendChild( p );
+    console.log( p.isConnected ); */
+
+    /* var p = document.createElement('p');
+    var div = document.createElement('div');
+    p.innerHTML = 'PPPPPPPPP';
+    document.body.append( p , div ); */
+
+    /* var p = document.createElement('p');
+    p.innerHTML = 'PPPPPPPPP';
+    document.body.prepend( p ); */
+
+    // var ul = document.getElementsByTagName('ul')[0];
+    // var li = document.getElementsByTagName('li')[0];
+    // var p = document.createElement('p');
+    // p.innerHTML = 'PPPPPPPPP';
+    //ul.insertBefore( p , li );
+    //ul.insertBefore( p , li.nextElementSibling );
+    //ul.insertBefore( p , null );  // ul.appendChild( p );
+    //li.before(p);
+    //li.after(p);
+    
+
+    //var p = document.querySelector('p');
+    //document.body.removeChild(p);
+    //p.remove();
+
+
+    // var ul = document.getElementsByTagName('ul')[0];
+    // var li = document.getElementsByTagName('li')[0];
+    // var p = document.createElement('p');
+    //p.innerHTML = 'PPPPPPPPP';
+    //ul.replaceChild(p , li);
+    //li.replaceWith(p);
+    
+    //刚才讲的节点操作，都是剪切的行为。
+
+    /* var ul = document.getElementsByTagName('ul');
+    var li = ul[0].children[0];
+    ul[1].appendChild( li ); */
+
+    var ul = document.getElementsByTagName('ul');
+    var li = ul[0].children[0];
+    var cloneLi = li.cloneNode(true);  // 布尔值的作用：false表示只复制节点，true表示复制当前节点和所有的后代节点
+
+    ul[1].appendChild( cloneLi );
+
+    </script>
+</body>
+</html>

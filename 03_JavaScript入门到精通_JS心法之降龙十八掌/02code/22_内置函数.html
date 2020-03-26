@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="./23_document.html">去23_document.html</a>
+    <script>
+
+    //var url = 'http://www.baidu.com/啊';
+    //console.log( encodeURI(url) );
+
+    //var url = 'http://www.baidu.com/啊';
+    //console.log( encodeURIComponent(url) );  // 应用范围更广，可以对url中自带的特殊符号进行编码
+
+    //var url = 'http%3A%2F%2Fwww.baidu.com%2F%E5%95%8A';
+    //console.log( decodeURIComponent(url) );
+
+    //用处：为了安全考虑，要对url进行编码
+
+    var url = 'https://s.weibo.com/weibo/%25E5%2595%258A?topnav=1&wvr=6';
+    
+    console.log( decodeURI(decodeURI(url)) ); // https://s.weibo.com/weibo/啊?topnav=1&wvr=6
+    
+    /* var url = 'https://s.weibo.com/weibo/啊?topnav=1&wvr=6';
+    console.log( encodeURI(url) );
+    console.log( encodeURI('https://s.weibo.com/weibo/%E5%95%8A?topnav=1&wvr=6') ); */
+    </script>
+</body>
+</html>

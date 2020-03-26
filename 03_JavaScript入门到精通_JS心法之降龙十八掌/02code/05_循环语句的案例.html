@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    ul{ list-style: none;}
+    ul{ position: relative; margin:50px auto; width:500px; perspective: 500;}
+    ul li{ width:50px; height:50px; position: absolute; background:url('./img/1.png') no-repeat; transition: 2s;}
+    </style>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+
+    var list = document.getElementById('list');
+    var lis = list.getElementsByTagName('li');
+
+    for(var i=0;i<5;i++){
+        for(var j=0;j<10;j++){
+            list.innerHTML += '<li style="left:'+ j*50 +'px;top:'+ i*50 +'px;background-position:'+ -j*50 +'px '+ -i*50 +'px"></li>';
+        }
+    }
+
+    setTimeout(function(){
+
+        for(var i=0;i<lis.length;i++){
+            lis[i].style.opacity = 0;
+            lis[i].style.transform = 'scale(2) rotate3d(1,1,1,'+ Math.floor(Math.random() * 720 - 360)  +'deg) translate3d('+ Math.floor(Math.random()*200 - 100 ) +'px,'+ Math.floor(Math.random()*200 - 100)  +'px,'+ Math.floor(Math.random()*200 - 100) +'px)';
+        }
+
+    },2000);
+
+
+
+    </script>
+</body>
+</html>

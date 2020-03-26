@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    body{ width:2000px;}
+    #box1{ width:200px; height:200px; background:red; margin:50px; overflow: hidden; /* position: relative; */}
+    #box2{ width:100px; height:100px; background:yellow; margin:50px;}
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+    <script>
+        var box2 = document.getElementById('box2');
+        //console.log( box2.offsetLeft );  // 到文档的最左边的距离 ( 要考虑祖先节点的定位模式 )
+        console.log( box2.getBoundingClientRect().left + window.pageXOffset ); // 到可视区的最左边的距离
+        //console.log( box2.getBoundingClientRect().bottom ); 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <ul class="box">
+        <li class="box">
+            <ul>
+                <li id="list">111</li>
+            </ul>
+        </li>
+    </ul> -->
+
+    <!-- <ul>
+        <li>aaaaaaaaa <button>X</button></li>
+        <li>bbbbbbbbb <button>X</button></li>
+        <li>ccccccccc <button>X</button></li>
+        <li>ddddddddd <button>X</button></li>
+    </ul> -->
+
+    <ul>
+        <li><div>aaaaaaaaa <button>X</button></div></li>
+        <li><div><div>bbbbbbbbb <button>X</button></div></div></li>
+        <li>ccccccccc <button>X</button></li>
+        <li><div>ddddddddd <button>X</button></div></li>
+    </ul>
+
+    <script>
+
+    //var list = document.getElementById('list');
+    //console.log( list.closest('ul') );
+    //console.log( list.closest('.box') );
+
+    /* var buttons = document.getElementsByTagName('button');
+
+    for(var i=0;i<buttons.length;i++){
+        buttons[i].onclick = function(){
+            this.parentNode.style.display = 'none';
+        };
+    } */
+
+    var buttons = document.getElementsByTagName('button');
+
+    for(var i=0;i<buttons.length;i++){
+        buttons[i].onclick = function(){
+            this.closest('li').style.display = 'none';
+        };
+    }
+
+    </script>
+</body>
+</html>

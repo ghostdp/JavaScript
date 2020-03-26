@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><button>留言</button>
+    <ul>
+
+    </ul>
+    <script>
+    var input = document.querySelector('input');
+    var button = document.querySelector('button');
+    var ul = document.querySelector('ul');
+    var spans = ul.getElementsByTagName('span');
+
+    button.onclick = function(){
+        if( !input.value ){
+            return;
+        }
+        var newLi = document.createElement('li');
+        newLi.innerHTML = input.value + ' <span>X</span>';
+        ul.prepend(newLi);
+        input.value = '';
+        input.focus();
+
+        for(var i=0;i<spans.length;i++){
+            spans[i].onclick = function(){
+                this.parentNode.remove();
+            };
+        }
+    };
+    </script>
+</body>
+</html>

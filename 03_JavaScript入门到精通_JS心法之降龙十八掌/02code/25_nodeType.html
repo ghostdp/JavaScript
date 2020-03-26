@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="elem"><p>pppppppp</p>hello<!-- 我是注释 --></div>
+    <script>
+
+    //nodeType : 节点的类型（节点分为7种）
+
+    //console.log( document.nodeType == Node.DOCUMENT_NODE );  // 9
+
+    //console.log( document.doctype.nodeType );  // 10
+
+    /*var elem = document.getElementById('elem');
+    console.log( elem.childNodes[0].nodeType );  // 1
+    console.log( elem.childNodes[1].nodeType );  // 3
+    console.log( elem.childNodes[2].nodeType );  // 8
+ */
+
+    /* var frag = new DocumentFragment();  //文档片段（后面讲）
+    console.log( frag.nodeType );   // 11 */
+
+    /* var elem = document.getElementById('elem');
+    console.log( elem.attributes[0].nodeType );   // 2 */
+
+    console.log( document.nodeName , document.nodeValue );
+    console.log( document.doctype.nodeName , document.doctype.nodeValue );
+    var elem = document.getElementById('elem');
+    console.log( elem.childNodes[0].nodeName , elem.childNodes[0].nodeValue );  
+    console.log( elem.childNodes[1].nodeName , elem.childNodes[1].nodeValue ); 
+    console.log( elem.childNodes[2].nodeName , elem.childNodes[2].nodeValue );
+    var frag = new DocumentFragment(); 
+    console.log( frag.nodeName , frag.nodeValue );
+    console.log( elem.attributes[0].nodeName , elem.attributes[0].nodeValue );
+        
+
+    </script>
+</body>
+</html>

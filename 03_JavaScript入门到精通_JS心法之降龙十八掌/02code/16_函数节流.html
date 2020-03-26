@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{ height:3000px;}
+    </style>
+</head>
+<body>
+    <script>
+    
+    //onscroll是滚动条事件，多次触发
+    window.onscroll = jieliu(change,300);
+
+    function change(){
+        console.log(123);
+    }
+
+    function jieliu(fn,delay){
+        var flag = true;
+        return function(){
+            if(!flag){
+                return;
+            }
+            flag = false;
+            setTimeout(function(){
+                fn();
+                flag = true;
+            },delay);
+        };
+    }
+    </script>
+</body>
+</html>

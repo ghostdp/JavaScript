@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // function foo(){
+
+    //     if( /* 判断何时停止递归 */ ){
+    //         return;
+    //     }
+
+    //     foo();
+
+    // }
+
+    // foo();
+
+    // 利用递归实现阶乘处理
+
+    /* 1 * 2 * 3 * 4 * 5 * 6 -> ( 1 * 2 * 3 * 4 * 5 ) * 6 -> (  1 * 2 * 3 * 4 ) * 5
+        -> ( 1 * 2 * 3 ) * 4 -> ... */
+
+    function foo(n){
+        if( n <= 1 ){
+            return 1;
+        }
+        return foo(n-1) * n;
+    }
+
+    console.log( foo(6) );
+
+    </script>
+</body>
+</html>

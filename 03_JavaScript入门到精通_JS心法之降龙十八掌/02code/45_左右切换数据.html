@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{ float:left;}
+    ul .active{ background:red;}
+    div{ float: left; margin:0 50px;}
+    div button{ display: block; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+        <li>5555</li>
+    </ul>
+    <div>
+        <button disabled>→</button>
+        <button disabled>←</button>
+        <button disabled>←→</button>
+    </div>
+    <ul>
+        <li>aaaa</li>
+        <li>bbbb</li>
+        <li>cccc</li>
+        <li>dddd</li>
+        <li>eeee</li>
+    </ul>
+    <script>
+    var uls = document.querySelectorAll('ul');
+    var buttons = document.querySelectorAll('button');
+
+    for(var i=0;i<uls.length;i++){
+        selectListItem( uls[i] );
+    }
+    
+
+    function selectListItem( ul ){
+        var lis = ul.getElementsByTagName('li');
+
+        for(var i=0;i<lis.length;i++){
+            lis[i].onoff = true;
+            lis[i].onclick = function(){
+                if(this.onoff){
+                    this.className = 'active';
+                }
+                else{
+                    this.className = '';
+                }
+                this.onoff = !this.onoff;
+                showBtns();
+                bindBtns();
+            };
+        }
+
+    }
+
+    function showBtns(){
+        var selLis0 = uls[0].getElementsByClassName('active');
+        var selLis1 = uls[1].getElementsByClassName('active');
+
+        for(var i=0;i<buttons.length;i++){
+            buttons[i].disabled = true;
+        }
+
+        if( selLis0.length && !selLis1.length ){
+            buttons[0].disabled = false;
+        }
+        else if(!selLis0.length && selLis1.length){
+            buttons[1].disabled = false;
+        }
+        else if(selLis0.length && selLis1.length){
+            buttons[2].disabled = false;
+        }
+    }
+
+    function bindBtns(){
+
+        var selLis0 = uls[0].querySelectorAll('.active');
+        var selLis1 = uls[1].querySelectorAll('.active');
+
+        for(var i=0;i<buttons.length;i++){
+            buttons[i].index = i;
+            buttons[i].onclick = function(){
+                if( this.index == 0 ){
+                    for(var i=0,len=selLis0.length;i<len;i++){
+                        uls[1].appendChild(selLis0[i]);
+                    }
+                    toReset(this);
+                }
+                else if(this.index == 1){
+                    for(var i=0,len=selLis1.length;i<len;i++){
+                        uls[0].appendChild(selLis1[i]);
+                    }
+                    toReset(this);
+                }
+                else if(this.index == 2){
+                    for(var i=0,len=selLis0.length;i<len;i++){
+                        uls[1].appendChild(selLis0[i]);
+                    }
+                    for(var i=0,len=selLis1.length;i<len;i++){
+                        uls[0].appendChild(selLis1[i]);
+                    }
+                    toReset(this);
+                }
+            };
+        }
+    }
+
+    function toReset( btn ){
+
+        var selLis0 = uls[0].getElementsByClassName('active');
+        var selLis1 = uls[1].getElementsByClassName('active');
+
+        for(var i=0,len=selLis0.length;i<len;i++){
+            selLis0[0].onoff = true;
+            selLis0[0].className = '';
+        }
+        for(var i=0,len=selLis1.length;i<len;i++){
+            selLis1[0].onoff = true;
+            selLis1[0].className = '';
+        }
+        btn.disabled = true;
+    }
+    </script>
+</body>
+</html>

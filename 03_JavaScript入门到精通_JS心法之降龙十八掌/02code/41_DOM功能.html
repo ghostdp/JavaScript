@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #elem{ width:200px; height:200px; background:red; padding:20px; border:5px black solid;}
+    </style>
+</head>
+<body>
+    <div id="elem"></div>
+    <script>
+    var elem = document.getElementById('elem');
+    //console.log( elem.clientWidth );   // padding + content
+    //console.log( elem.offsetWidth );   // padding + content + border
+    //console.log( elem.clientLeft );   // border的大小
+    
+    console.log( elem.getBoundingClientRect().width );  // padding + content + border
+    </script>
+</body>
+</html>

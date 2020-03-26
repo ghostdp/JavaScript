@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    body{ height:2000px;}
+    #login{ width:300px; height:300px; border:1px black solid; background:white; position:fixed; z-index:10;}
+    #login .close{ float:right; cursor:pointer;}
+    #login .con{ clear:both;}
+    #mask{ width:100%; /* height:500px; */ background:rgba(0,0,0,0.5); position:absolute; left:0; top:0; z-index:5;}
+    </style>
+</head>
+<body>
+    <button id="btn">登录</button>
+    <!-- <div id="login">
+        <div class="close">X</div>
+        <div class="con">
+            <div>
+                用户名：<input type="text">
+            </div>
+            <div>
+                密码：<input type="password">
+            </div>
+            <div>
+                <input type="submit" value="确定">
+            </div>
+        </div>
+    </div>
+    <div id="mask"></div> -->
+    <script>
+    
+    var btn = document.getElementById('btn');
+    var close = document.getElementsByClassName('close');
+    var login;
+    var mask;
+
+    btn.onclick = function(){
+        createLogin();
+        createMask();
+        bindCloseBtn();
+    };
+
+    function createLogin(){
+        login = document.createElement('div');
+        login.id = 'login';
+        login.innerHTML = `
+            <div class="close">X</div>
+            <div class="con">
+                <div>
+                    用户名：<input type="text">
+                </div>
+                <div>
+                    密码：<input type="password">
+                </div>
+                <div>
+                    <input type="submit" value="确定">
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild( login );
+        login.style.left = (viewW() - login.offsetWidth)/2 + 'px';
+        login.style.top = (viewH() - login.offsetHeight)/2 + 'px';
+
+    }
+
+    function createMask(){
+        mask = document.createElement('div');
+        mask.id = 'mask';
+        document.body.appendChild(mask);
+        mask.style.height = pageH() + 'px';
+    }
+
+    function bindCloseBtn(){
+        close[0].onclick = function(){
+            login.remove();
+            mask.remove();
+        };
+    }
+
+    function viewW(){
+        return document.documentElement.clientWidth;
+    }
+    function viewH(){
+        return document.documentElement.clientHeight;
+    }
+    function pageH(){
+        return document.body.offsetHeight;
+    }
+
+    </script>
+</body>
+</html>

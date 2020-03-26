@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //柯里化(Currying)，又称部分求值，是把接受多个参数的函数变换成接受一个单一参数的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+
+        //闭包的衍生模式
+
+        /* function foo(n1,n2){
+            return n1 + n2;
+        }
+
+        foo(1,2); */
+
+        /* function foo(n1){
+            return function(n2){
+                return n1 + n2;
+            }
+        }
+
+        console.log( foo(1)(2) ); */
+
+        // 应用场景：
+        //     1. 参数复用。
+
+        /* function foo(reg , str){
+            return reg.test(str);
+        }
+
+        console.log( foo(/\d+/ , '123') );
+        console.log( foo(/\d+/ , 'hello') ); */
+
+
+        /* function foo(reg){
+            return function(str){
+                return reg.test(str);
+            };
+        }
+
+        var isNumber = foo(/\d+/);
+
+        console.log( isNumber('123') );
+        console.log( isNumber('hello') ); */
+
+        //     2. 提前确认。
+
+        /* function on(elem , type , fn){
+            if(elem.addEventListener){
+                elem.addEventListener(type,fn);
+            }
+            else{
+                elem.attachEvent('on'+type , fn);
+            }
+        }
+
+        on(div , 'click' , function(){});
+        on(span , 'mouseover' , function(){}); */
+
+        /* var on = function(){
+
+            if(window.addEventListener){
+                return function(elem , type , fn){
+                    elem.addEventListener(type,fn);
+                };
+            }
+            else{
+                return function(elem , type , fn){
+                    elem.attachEvent('on'+type , fn);
+                };
+            }
+
+        }();
+
+        on(div , 'click' , function(){});
+        on(span , 'mouseover' , function(){}); */
+
+
+        //     3. 延迟运行。  
+        
+        /* foo()();
+
+        JS内部自带的bind()方法，典型的柯里化方法。
+
+        bind()(); */
+
+    </script>
+</body>
+</html>

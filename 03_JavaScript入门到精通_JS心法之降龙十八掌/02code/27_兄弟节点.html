@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        <li id="list">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+    <ul>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+        <li>aaaaaaa</li>
+    </ul>
+    <script>
+    /* var list = document.getElementById('list');
+    console.log( list.nextSibling );
+    console.log( list.nextElementSibling );
+    console.log( list.previousSibling );
+    console.log( list.previousElementSibling ); */
+
+    var lis = document.getElementsByTagName('li');
+    for(var i=0;i<lis.length;i++){
+        lis[i].onmouseover = function(){
+            var next = this.nextElementSibling;
+            var prev = this.previousElementSibling;
+            this.style.background = 'red';
+            if(next){
+                next.style.background = 'blue';
+            }
+            if(prev){
+                prev.style.background = 'blue';
+            }
+        };
+        lis[i].onmouseout = function(){
+            var next = this.nextElementSibling;
+            var prev = this.previousElementSibling;
+            this.style.background = '';
+            if(next){
+                next.style.background = '';
+            }
+            if(prev){
+                prev.style.background = '';
+            }
+        };
+    }
+    </script>
+</body>
+</html>

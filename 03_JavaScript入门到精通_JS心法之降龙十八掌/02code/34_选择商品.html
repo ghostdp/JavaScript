@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{ margin:0; padding:0;}
+    ul{ list-style: none; overflow: hidden;}
+    ul li{ float:left; border:1px red solid; margin:10px; padding:10px; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h3>品牌</h3>
+    <ul>
+        <li>苹果</li>
+        <li>三星</li>
+        <li>华为</li>
+        <li>小米</li>
+    </ul>
+    <hr>
+    <h3>颜色</h3>
+    <ul>
+        <li>玫瑰红</li>
+        <li>祖母绿</li>
+        <li>天空蓝</li>
+    </ul>
+    <hr>
+    <h3>价格</h3>
+    <ul>
+        <li>1000</li>
+        <li>3000</li>
+        <li>5000</li>
+        <li>8000</li>
+    </ul>
+    <hr>
+    <script>
+    
+    var uls = document.getElementsByTagName('ul');
+
+    for(var i=0;i<uls.length;i++){
+        addGoods( uls[i] );
+    }
+
+    function addGoods( parent ){
+        var lis = parent.getElementsByTagName('li');
+        var newDiv;
+        for(var i=0;i<lis.length;i++){
+            lis[i].onclick = function(){
+                if( !newDiv ){
+                    newDiv = document.createElement('div');
+                    document.body.appendChild(newDiv);
+                }
+                newDiv.innerHTML = this.innerHTML;
+            };
+        }
+    }
+    
+    </script>
+</body>
+</html>

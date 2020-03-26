@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    /* function foo(){
+
+        //arguments : 在函数内进行使用的，跟return很像 , 对象，表示实参的集合
+
+        //console.log( arguments.length );
+        var result = 0;
+        for(var i=0;i<arguments.length;i++){
+            //arguments[i]
+            result += arguments[i];
+        }
+        return result;
+    }
+
+    console.log( foo(1,2,3,4,5) ); */
+
+    /* function foo(n1,n2,n3){
+
+    }
+
+    console.log( foo.length );  //形参集合的个数 , 不常用 */
+
+    /* function foo(a,b,...c){  // 1. 必须在所有参数的最后出现。2. 形参集合是不包含剩余参数
+        console.log( c );
+    }
+
+    foo(1,2,3,4,5); */
+
+
+    function foo(a = 3 , b = 4){
+        console.log(a);
+        console.log(b);
+    }
+
+    foo(1,2);
+
+    //foo();
+
+
+
+
+    </script>
+</body>
+</html>

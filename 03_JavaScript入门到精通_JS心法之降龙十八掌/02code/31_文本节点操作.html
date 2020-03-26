@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // 扩展学习
+    var textNode = document.createTextNode('Hello');
+    document.body.appendChild(textNode);
+
+    textNode.appendData('World');
+    //textNode.deleteData( 2 , 3 );  // 一参：起始位置，二参：个数
+    //textNode.insertData( 2 , '++' );
+    //textNode.replaceData( 2 , 3 , '++' );
+
+    console.log( textNode.substringData(2,3) );   // 得到截取文本节点对应的字符
+
+    </script>
+</body>
+</html>

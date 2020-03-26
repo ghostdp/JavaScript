@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <label for="hello">用户名：</label><input id="hello" type="text">
+    <script>
+    
+    var label = document.querySelector('label');
+
+    console.log( label.htmlFor );
+
+    </script> -->
+
+    <!-- <div id="elem" title="hello" class="box" qianfeng="千锋">aaaaaa</div> -->
+    <div id="elem" title="hello" class="box" data-qianfeng="千锋">aaaaaa</div>
+
+    <script>
+    
+    //var elem = document.getElementById('elem');
+    //console.log( elem.getAttribute('title') );
+    
+    //elem.setAttribute('title','hi');
+
+    //elem.removeAttribute('title');
+
+    //console.log( elem.getAttributeNames() );
+
+    //console.log( elem.hasAttribute('class') );
+
+    //console.log( elem.hasAttributes() );
+
+    // 获取属性有四种方式
+        // . 
+        // []
+        // getAttribute()
+        // dataset
+
+        //区别来自于自定义属性，直接在标签身上添加
+
+        var elem = document.getElementById('elem');
+
+        //console.log( elem.getAttribute('qianfeng') );
+
+        console.log( elem.dataset.qianfeng );
+
+    </script>
+
+</body>
+</html>

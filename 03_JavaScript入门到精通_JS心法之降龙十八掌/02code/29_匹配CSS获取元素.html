@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="elem" class="box">aaaa</div>
+    <p class="box">bbbbbbb</p>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol> -->
+    <ul>
+
+    </ul>
+    <script>
+
+    //var elem = document.querySelector('#elem');
+    //var box = document.querySelector('.box');
+
+    //var box = document.querySelector('.box');
+    //console.log( box );
+
+    /* var box = document.querySelector('ul li');
+    console.log( box ); */
+
+    /* var lis = document.querySelectorAll('ul li');
+    console.log( lis ); */
+
+    //动态获取与非动态获取(静态获取)  很重要的！
+
+    //动态获取 : getElementsByTagName 、getElementsByClassName
+    //非动态获取 : getElementById、querySelector、querySelectorAll
+
+   /* var ul = document.getElementsByTagName('ul')[0];
+    var lis = document.getElementsByTagName('li');
+
+     console.log( lis.length );
+
+    ul.innerHTML = '<li></li>';
+
+    console.log( lis.length ); */
+
+    var ul = document.getElementsByTagName('ul')[0];
+    var lis = document.querySelectorAll('li');
+
+    console.log( lis.length );
+
+    ul.innerHTML = '<li></li>';
+
+    console.log( lis.length );
+
+    </script>
+</body>
+</html>

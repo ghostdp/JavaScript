@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // 函数声明
+
+    /* function foo(){
+        console.log(123);
+    }
+
+    foo(); */
+
+    // 函数表达式
+
+   /*  var foo = function(){
+        console.log(123);
+    };
+
+    foo(); */
+
+    // 函数对象 ( 不常用的，了解就可以 )
+
+    /* var foo = new Function('console.log(123)');
+
+    foo(); */
+
+    // 函数声明 ： 具备函数提升方式的
+
+    /* foo();
+
+    function foo(){
+        console.log(123);
+    } */
+
+    // 函数表达式： 不具备提升的
+
+    /* foo();
+
+    var foo = function(){
+        console.log(123);
+    }; */
+
+//------------------------------------
+
+    // 函数表达式：可以对函数进行直接调用
+
+   /*  var foo = function(){
+        console.log(123);
+    }(); */
+
+    // 函数声明：不具备直接调用的能力
+
+    /* function foo(){
+        console.log(123);
+    }()   // 错误写法 */
+
+    
+    
+
+
+    </script>
+</body>
+</html>

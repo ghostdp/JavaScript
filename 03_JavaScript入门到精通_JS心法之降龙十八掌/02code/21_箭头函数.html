@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //箭头函数：ES6提供的新功能，非常的重要
+
+    //function foo(){}   // 不能改成成箭头函数
+    //var foo = function(){};  // 可以改写成箭头函数
+
+    /* var foo = function(){};
+
+    var foo = () => {}; */
+
+   /*  var foo = function(){
+        return 123;
+    };
+
+    var foo = () => 123; */
+
+    /* var foo = function(x){
+        return 123;
+    };
+
+    var foo = x => 123; */
+
+    /* var foo = function(x,y){
+        var result = x + y;
+        return result;
+    };
+
+    var foo = (x,y) => {
+        var result = x + y;
+        return result;
+    }; */
+
+    /* var foo = function(){
+        return {
+            a : 1,
+            b : 2
+        };
+    };
+
+    var foo = () => ({
+        a : 1,
+        b : 2
+    }); */
+
+    //特点：
+    //1. this指向问题
+
+    //document.onclick = function(){
+        /* setTimeout(function(){
+            
+            this
+            
+        },1000); */
+        /* setTimeout(()=>{
+            this
+        },1000); */
+    //};
+
+    //2. 没有arguments对象
+    
+    /* var foo = ()=>{
+        console.log( arguments );  //找不到
+    };
+    foo(1,2,3); */
+
+    //3. 不能用在构造函数中
+    
+    //构造函数属于面向对象的内容，构造函数不能改写成箭头函数
+
+    //4. 生成器函数 , 箭头不能用在生成器函数
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+   /*  function foo(cb){
+
+    }
+
+    foo( function(){} ); */
+
+    /* function foo(cb){
+
+    }
+    function bar(){
+
+    }
+    foo(bar); */
+
+
+    /* function sum(num1,num2){}
+
+    sum(1,100);
+    sum(5,40); */
+
+    /* function foo(cb){
+        // 复用的100行代码
+        cb();
+    }
+
+    foo(function(){
+        带辣椒包
+    });
+
+    foo(function(){
+        带玩具
+    }); */
+
+
+    /* setTimeout(function(){
+        console.log(1);
+    },2000);
+
+    console.log(2);
+ */
+
+    function foo(cb){
+        setTimeout(function(){
+            console.log(1);
+            cb();
+        },2000);
+    }
+
+    foo(function(){
+        console.log(2);
+    });
+    </script>
+</body>
+</html>

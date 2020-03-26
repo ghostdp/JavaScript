@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list"></ul>
+    <script>
+
+    var cites = {
+        name : '中国',
+        children : [
+            { name : '北京' },
+            { name : '上海' },
+            { 
+                name : '辽宁',
+                children : [
+                    { 
+                    name : '大连',
+                    children : [
+                        { name : '甘井子区' },
+                        { name : '沙河口区' },
+                        { name : '中山区' },
+                        { name : '开发区' }
+                    ] 
+                    },
+                    { name : '沈阳' },
+                    { name : '鞍山' }
+                ] 
+            }
+        ] 
+    }
+
+    function renderTree(cites){
+        var result = '<li>' + cites.name; 
+        if( cites.children ){
+            result += '<span>+</span>';
+            result += '<ul style="display:none">';
+            for(var i=0;i<cites.children.length;i++){
+                result += renderTree(cites.children[i]);
+            }
+            result += '</ul>';
+        }
+        result += '</li>';
+        return result;
+    }
+
+    var list = document.getElementById('list');
+    var listItem = list.getElementsByTagName('li');
+    list.innerHTML = renderTree(cites);
+
+    for(var i=0;i<listItem.length;i++){
+        listItem[i].onclick = function(ev){
+            var child = this.getElementsByTagName('ul')[0];
+            var icon = this.getElementsByTagName('span')[0];
+            if(child && child.style.display == 'none'){
+                child.style.display = 'block';
+                icon.innerHTML = '-';
+            }
+            else if(child){
+                child.style.display = 'none';
+                icon.innerHTML = '+';
+            }
+            ev.stopPropagation();
+        };
+    }
+
+    // 斐波那契数列 : 1 1 2 3 5 8 13 ，找对应第9位，所对应的数是多少？
+
+    /* functon foo(){
+
+        //bar();  //   arguments.callee 跟函数名 是等价关系的 
+        arguments.callee();
+    } */
+
+    </script>
+</body>
+</html>

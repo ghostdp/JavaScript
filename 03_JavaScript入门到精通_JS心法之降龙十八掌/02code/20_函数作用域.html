@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+   /*  var a = 1;
+    function bar(){}
+
+    function foo(){
+        console.log(a);
+        bar();
+    } */
+
+    /* function foo(){
+        var a = 1;
+        function bar(){}
+    }
+    foo();
+
+    console.log(a);
+    bar(); */
+
+    //词法作用域 : JS中采用的就是词法作用域 , 变量的查找只看定义的位置，不看调用的位置
+    //动态作用域 : JS中不存在动态作用域 ， 变量的查找只看调用的位置，不看定义的位置
+
+    var a = 1;
+    function foo(){
+        var a = 2;
+        bar();
+    }
+
+    foo();
+
+    function bar(){
+        console.log(a);
+    }
+
+
+
+    </script>
+</body>
+</html>

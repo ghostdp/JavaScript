@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="editableText" contenteditable="true" style="width:400px;min-height:100px;border:2px dashed #ccc"></div>
+    <button id="button">操作</button>
+    <script>
+    var editableText = document.getElementById('editableText');
+    var button = document.getElementById('button');
+    
+    button.onclick = function(){
+        //document.execCommand('bold',false,null);
+        //document.execCommand('italic',false,null);
+        //document.execCommand('foreColor',false,'red');
+        //document.execCommand('backColor',false,'red');
+        //document.execCommand('createlink',false,'http://www.baidu.com');
+        //document.execCommand('insertimage',false,'https://profile.csdnimg.cn/4/0/8/3_isaisai');
+        document.execCommand('justifycenter',false,null);
+
+    };
+    </script>
+</body>
+</html>

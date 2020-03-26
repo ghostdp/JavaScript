@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+    </ul>
+    <script>
+    
+    var ul = document.getElementsByTagName('ul')[0];
+
+    /* ul.children[0].onclick = function(){
+        alert(123);
+        ul.innerHTML += '<li>222222</li>';
+    }; */
+
+    ul.children[0].onclick = function(){
+        alert(123);
+        var li = document.createElement('li');
+        li.innerHTML = '22222';
+        ul.appendChild( li );
+    };
+
+    </script>
+</body>
+</html>
